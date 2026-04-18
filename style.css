@@ -1,9 +1,12 @@
 /* Brand tokens — edit these, everything downstream uses them */
 :root {
   --brand-ink: #0f172a;          /* primary text / dark surfaces */
+  --brand-ink-strong: #334155;   /* secondary emphasis — between ink and muted */
   --brand-paper: #ffffff;        /* light surfaces */
   --brand-muted: #64748b;        /* secondary text */
-  --brand-accent: #f97316;       /* headlines, emphasis */
+  --brand-muted-strong: #475569; /* darker muted — between muted and ink-strong */
+  --brand-accent: #f97316;       /* headlines, primary emphasis */
+  --brand-accent-2: #0891b2;     /* secondary accent — numbers, eyebrow labels */
   --brand-accent-soft: #fed7aa;  /* highlight washes */
   --brand-rule: #e2e8f0;         /* dividers */
 
@@ -58,4 +61,51 @@
 .slidev-layout.dark-slide h1,
 .slidev-layout.dark-slide h2 {
   color: var(--brand-paper);
+}
+
+/* Eyebrow — small-caps mono label above a headline */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--brand-accent-2);
+  margin-bottom: 1rem;
+}
+
+/* Big-bullets — oversized dashed bullets for scannable list slides */
+.slidev-layout ul.big-bullets {
+  list-style: none;
+  padding: 0;
+}
+
+.slidev-layout ul.big-bullets > li {
+  font-size: 1.4rem;
+  padding: 0.5rem 0 0.5rem 1.75rem;
+  position: relative;
+  line-height: 1.4;
+  color: var(--brand-ink-strong);
+}
+
+.slidev-layout ul.big-bullets > li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--brand-accent);
+  font-weight: 700;
+}
+
+.slidev-layout ul.big-bullets > li strong {
+  color: var(--brand-ink);
+}
+
+/* Byline — centered mono small-caps, for title and closing slide taglines */
+.byline {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--brand-muted-strong);
+  line-height: 2;
+  text-align: center;
 }
